@@ -132,7 +132,7 @@ $star-count: 200;
     height: calc(100% - var(--offset));
     border-radius: 100%;
     aspect-ratio: 1/1;
-    background-image: url(/moon.webp);
+    background-image: url('/eclipse-wedding-inquiry/moon.webp');
     background-size: cover;
     animation: moon var(--animation-time)
 ease-out forwards, moon-color var(--animation-time) var( --sky-change-ease) forwards;
@@ -297,7 +297,7 @@ h1 {
     &:before{
         content:"";
         display: inline-block;
-        background-image:url("/spain-map.svg");
+        background-image:url("/eclipse-wedding-inquiry/spain-map.svg");
         background-size: cover;
         height:2em;
         width:auto;
