@@ -1,0 +1,499 @@
+@use "sass:math";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    --inital-bg: skyblue;
+    --bottom-bg: #002038;
+    --animation-time: 1.5s;
+    // --animation-time: 0.1s;
+    --to-corona-time: 0.1s;
+    --sky-change-ease: cubic-bezier(0.990, 0.000, 0.760, 0.620);
+
+}
+
+:root{
+    font-size:18px;
+}
+
+body {
+    font-family: 'Georgia', serif;
+    line-height: 1.6;
+    min-height: 100vh;
+    color: #333;
+    background-color: var(--inital-bg);
+    animation: bgcolor var(--animation-time) var( --sky-change-ease) forwards;
+    position: relative;
+}
+
+body::before{
+    content:"";
+    display:block;
+    background:linear-gradient(to bottom, transparent, var(--inital-bg));
+    width:100%;
+    height:100vh;
+    position: absolute;
+    bottom:0px;
+}
+
+@keyframes bgcolor{
+    10%{
+        background-color: var(--inital-bg);
+    }
+    100%{
+        background-color: var(--bottom-bg);
+    }
+}
+
+$star-count: 200;
+.star {
+  background: transparent;
+  height: 2px;
+  width: 2px;
+  position: absolute;
+  border-radius: 2px;
+  background:transparent;
+  animation: twinkle 5s infinite, twinkleIn var(--animation-time) forwards;
+  @for $i from 1 through $star-count {
+    &:nth-of-type(#{$i}) {
+      $delay: random(20);
+      animation-delay: -#{$delay}s, 0s;
+      top: math.percentage(random(100)/100);
+      left: math.percentage(random(100)/100);
+    }
+  }
+}
+
+@keyframes twinkleIn {
+    from { 
+        background: transparent; 
+    }
+    to { 
+        background: white; 
+    }
+}
+
+@keyframes twinkle {
+    5% {
+        opacity: 1;
+    }
+    15% {
+        opacity: 0.3;
+    }
+    68% {
+        opacity: 0.3;
+    }
+    74% {
+        opacity: 1;
+    }
+    78% {
+        opacity: 0.3;
+    }
+}
+
+.sun-wrapper{
+    position: relative;
+    height:100px;
+    width:100%;
+}
+
+#sun{
+    --offset: 2%;
+    position: absolute;
+    inset: 0 0 0 0;
+    margin: auto;
+    width: auto;
+    height: 100%;
+    aspect-ratio: 1/1;
+    border-radius: 100%;
+    background: #ffad00;
+    z-index: 1;
+    animation: toCorona var(--to-corona-time) calc(var(--animation-time) - var(--to-corona-time)) linear forwards;
+}
+
+@keyframes toCorona {
+    from {
+        background: #ffad00;
+    }
+    to {
+        background: rgba(255, 199, 69, 0);
+    }
+}
+
+// Moon
+#sun::before{
+    content: "";
+    display: block;
+    position: absolute;
+    left: calc(var(--offset) / 2);
+    bottom:  calc(var(--offset) / 2);
+    width: auto;
+    height: calc(100% - var(--offset));
+    border-radius: 100%;
+    aspect-ratio: 1/1;
+    background-image: url(/moon.webp);
+    background-size: cover;
+    animation: moon var(--animation-time)
+ease-out forwards, moon-color var(--animation-time) var( --sky-change-ease) forwards;
+}
+
+ @keyframes moon-color {
+    from {
+        filter: brightness(1);
+    }
+    to {
+        filter: brightness(0);
+    }
+ }
+
+@keyframes moon{
+    0% {
+        left: -100%;
+        bottom: -50%;
+    }
+    100% {
+        left: calc(var(--offset) / 2);
+        bottom: calc(var(--offset) / 2);
+    }
+}
+
+.corona-wrapper{
+    position: absolute;
+    inset: 0 0 0 0;
+    margin: auto;
+    width: auto;
+    height: 100%;
+    aspect-ratio: 1/1;
+}
+
+.corona{
+    height:100%;
+    width:auto;
+    aspect-ratio: 1/1;
+    position: absolute;
+    background-size: contain;
+    clip-path: circle(50% at 50%);
+    z-index: -1;
+    // opacity: 0;
+    animation: fadeIn var(--to-corona-time) calc(var(--animation-time) - var(--to-corona-time)) linear forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.corona-1{
+    animation: 35s linear rotate infinite;
+    background: repeating-conic-gradient(from 355deg at 50% 50%, rgba(255, 255, 255, 0) 0%, rgba(255, 198, 69, 0.26) 8.1%, rgba(69, 168, 255, 0) 16.67%, rgba(69, 168, 255, 0) 16.67%) 0 0/100% 100% no-repeat;
+}
+
+.corona-2{
+    animation: 30s linear rotate infinite reverse;
+    background: repeating-conic-gradient(from 355deg at 50% 50%, rgba(255, 255, 255, 0) 0%, rgba(255, 198, 69, 0.26) 2.86%, rgba(69, 168, 255, 0) 5.88%, rgba(69, 168, 255, 0) 5.88%) 0% 0%/100% 100% no-repeat;
+}
+
+.corona-3{
+    animation: 40s linear rotate infinite;
+    background: repeating-conic-gradient(from 0deg at 50% 50%, rgba(255, 255, 255, 0) 0%, rgba(255, 198, 69, 0.26) 6.62%, rgba(69, 168, 255, 0) 7.69%, rgba(69, 168, 255, 0) 7.69%) 0% 0%/100% 100% no-repeat;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% { 
+        transform: rotate(359deg);
+    }
+}
+
+.show-after-corona {
+  opacity: 0;
+  animation: fadeIn 0.5s linear forwards;
+
+  @for $i from 1 through 10 {
+    &:nth-child(#{$i}) {
+      // Use calc() to combine the CSS variable with Sass math
+      animation-delay: calc(var(--animation-time) + #{$i * 0.1s});
+    }
+  }
+}
+
+
+
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card {
+    --boxShadow:  rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(0.5px);
+    border-radius: 20px;
+    padding: 50px 40px;
+    box-shadow: 0 0 12px var(--boxShadow);
+    text-align: center;
+    transform: translateY(0);
+    @media (prefers-color-scheme: dark){
+        --boxShadow: transparent;
+    }
+}
+
+
+
+h1 {
+    --bg-text:linear-gradient(45deg, #667eea, #764ba2);
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    background: var(--bg-text);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    @media (prefers-color-scheme: dark){
+        --bg-text: var(--inital-bg);
+    }
+}
+
+.subtitle {
+    font-size: 1.3rem;
+    color: #666;
+    margin-bottom: 40px;
+    font-style: italic;
+    @media (prefers-color-scheme: dark){
+        color:#eeee;
+    }
+}
+
+.details {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    border-radius: 15px;
+    padding: 30px;
+    margin: 30px 0;
+    text-align: left;
+    @media (prefers-color-scheme: dark){
+        background:none;
+    }
+}
+
+.details h3 {
+    color: #444;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    text-align: center;
+    @media (prefers-color-scheme: dark){
+        color:#eeee;
+    }
+    &:before{
+        content:"";
+        display: inline-block;
+        background-image:url("/spain-map.svg");
+        background-size: cover;
+        height:2em;
+        width:auto;
+        aspect-ratio: 1/1;
+        translate:-5px 25%;
+    }
+}
+
+.detail-item {
+    display: flex;
+    margin-bottom: 15px;
+    align-items: center;
+    @media (prefers-color-scheme: dark){
+        color:white;
+    }
+    strong{
+        // text-transform: uppercase;
+        @media (prefers-color-scheme: dark){
+            color:var(--inital-bg);
+        }
+    }
+}
+
+.detail-icon {
+    width: 24px;
+    height: 24px;
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    border-radius: 50%;
+    margin-right: 15px;
+    flex-shrink: 0;
+    @media (prefers-color-scheme: dark){
+        background: linear-gradient(45deg, #f53e28, #ffce56);
+    }
+}
+
+.highlight {
+    background: linear-gradient(45deg, #ffd700, #ff8c00);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    font-weight: bold;
+    font-size: 1.1rem;
+    text-wrap-style: balance;
+    @media (prefers-color-scheme: dark){
+        background: none;
+    }
+    &::before,&::after{
+        content:"✨";
+        display:inline;
+    }
+}
+
+.important{
+    background: #f8f9fa;
+    border-left: 4px solid #667eea;
+    padding: 20px;
+    margin: 25px 0;
+    border-radius: 5px;
+    @media (prefers-color-scheme: dark){
+        border-left: 4px solid #f53e28;
+    }
+    h4{ 
+        color: #444; 
+        margin-bottom: 15px;
+    }
+    ul{
+        color: #666; 
+        line-height: 1.8; 
+        padding-left: 20px;
+        list-style-type: none;
+        text-align: left;
+        strong{
+            @media (prefers-color-scheme: dark){
+                color:var(--bottom-bg);
+            }
+        }
+    }
+}
+
+p{
+    margin:20px 0;
+    color:#555;
+    @media (prefers-color-scheme: dark){
+        color:white;
+    }
+}
+
+.form-section {
+    margin-top: 40px;
+    font-size:1.25rem;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #555;
+    font-size:0.75em;
+    @media (prefers-color-scheme: dark){
+        color:white;
+    }
+    span{
+        display: inline-block;
+        font-size:1em;
+    }
+}
+
+input[type="text"], input[type="email"], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1em;
+    transition: border-color 0.3s;
+    @media (prefers-color-scheme: dark){
+        border: 2px solid var(--inital-bg);
+    }
+}
+
+input[type="text"]:focus, input[type="email"]:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+.radio-group {
+    display: block;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    margin: 10px 0 0 10px;
+}
+
+.radio-option {
+    display: flex;
+    align-items: start;
+    gap: 8px;
+    cursor: pointer;
+    align-items: baseline;
+}
+
+input[type="radio"] {
+}
+
+.submit-btn {
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    font-size: 1.1em;
+    border-radius: 25px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    @media (prefers-color-scheme: dark){
+        background: linear-gradient(45deg, #f53e28, #ffce56);
+    }
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+}
+
+.footer {
+    margin-top: 30px;
+    font-size: 0.9rem;
+    color: #666;
+    font-style: italic;
+    @media (prefers-color-scheme: dark){
+        color:white;
+    }
+}
+
+@media (max-width: 600px) {
+    .card {
+        padding: 30px 20px;
+        margin: 10px;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    .subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .radio-group {
+        flex-direction: column;
+        align-items: center;
+    }
+}
