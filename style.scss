@@ -15,6 +15,9 @@
 
 :root{
     font-size:18px;
+    @media screen and (max-width:768px) {
+        font-size:16px;
+    }
 }
 
 body {
@@ -93,9 +96,11 @@ $star-count: 200;
 }
 
 .sun-wrapper{
+    display: block;
     position: relative;
     height:100px;
     width:100%;
+    margin-bottom:20px;
 }
 
 #sun{
@@ -132,7 +137,7 @@ $star-count: 200;
     height: calc(100% - var(--offset));
     border-radius: 100%;
     aspect-ratio: 1/1;
-    background-image: url('/eclipse-wedding-inquiry/moon.webp');
+    background-image: url('moon.webp');
     background-size: cover;
     animation: moon var(--animation-time)
 ease-out forwards, moon-color var(--animation-time) var( --sky-change-ease) forwards;
@@ -165,6 +170,7 @@ ease-out forwards, moon-color var(--animation-time) var( --sky-change-ease) forw
     width: auto;
     height: 100%;
     aspect-ratio: 1/1;
+    clip-path: circle(51.5% at 50%);
 }
 
 .corona{
@@ -173,7 +179,6 @@ ease-out forwards, moon-color var(--animation-time) var( --sky-change-ease) forw
     aspect-ratio: 1/1;
     position: absolute;
     background-size: contain;
-    clip-path: circle(50% at 50%);
     z-index: -1;
     // opacity: 0;
     animation: fadeIn var(--to-corona-time) calc(var(--animation-time) - var(--to-corona-time)) linear forwards;
@@ -203,6 +208,25 @@ ease-out forwards, moon-color var(--animation-time) var( --sky-change-ease) forw
     background: repeating-conic-gradient(from 0deg at 50% 50%, rgba(255, 255, 255, 0) 0%, rgba(255, 198, 69, 0.26) 6.62%, rgba(69, 168, 255, 0) 7.69%, rgba(69, 168, 255, 0) 7.69%) 0% 0%/100% 100% no-repeat;
 }
 
+.corona-blur{
+    border-radius: 100%;
+    height: calc(100% + 10px);
+    translate: -5px -5px;
+    z-index: 1000;
+    mask: radial-gradient(circle 52px at 50% 50%, transparent 98%, #000 99%);
+    // background: #00203885;
+    animation: coronaBlur  var(--to-corona-time) calc(var(--animation-time) - var(--to-corona-time)) linear forwards;
+}
+
+@keyframes coronaBlur {
+    from {
+        background: #00203800;
+    }
+    to {
+        background: #00203885;
+    }
+}
+
 @keyframes rotate {
     0% {
         transform: rotate(0deg);
@@ -225,28 +249,25 @@ ease-out forwards, moon-color var(--animation-time) var( --sky-change-ease) forw
 }
 
 
-
-
 .container {
     max-width: 800px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 1em;
     min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 .card {
     --boxShadow:  rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(0.5px);
     border-radius: 20px;
-    padding: 50px 40px;
+    padding: 1em;
     box-shadow: 0 0 12px var(--boxShadow);
     text-align: center;
     transform: translateY(0);
+    background:white;
     @media (prefers-color-scheme: dark){
         --boxShadow: transparent;
+        background:transparent
     }
 }
 
@@ -254,12 +275,14 @@ ease-out forwards, moon-color var(--animation-time) var( --sky-change-ease) forw
 
 h1 {
     --bg-text:linear-gradient(45deg, #667eea, #764ba2);
-    font-size: 2.5rem;
-    margin-bottom: 10px;
+    font-size: 2.25rem;
+    margin: 10px 0;
     background: var(--bg-text);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    line-height: 1.2;
+    text-wrap-style:balance;
     @media (prefers-color-scheme: dark){
         --bg-text: var(--inital-bg);
     }
@@ -268,7 +291,7 @@ h1 {
 .subtitle {
     font-size: 1.3rem;
     color: #666;
-    margin-bottom: 40px;
+    margin:20px 0;
     font-style: italic;
     @media (prefers-color-scheme: dark){
         color:#eeee;
@@ -278,7 +301,7 @@ h1 {
 .details {
     background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
     border-radius: 15px;
-    padding: 30px;
+    padding: 0 1em;
     margin: 30px 0;
     text-align: left;
     @media (prefers-color-scheme: dark){
@@ -297,7 +320,7 @@ h1 {
     &:before{
         content:"";
         display: inline-block;
-        background-image:url("/eclipse-wedding-inquiry/spain-map.svg");
+        background-image:url("spain-map.svg");
         background-size: cover;
         height:2em;
         width:auto;
@@ -334,14 +357,13 @@ h1 {
 }
 
 .highlight {
-    background: linear-gradient(45deg, #ffd700, #ff8c00);
+    background: linear-gradient(45deg, #f53e28, #ff8c00);
     color: white;
-    padding: 20px;
     border-radius: 10px;
     margin: 20px 0;
     font-weight: bold;
     font-size: 1.1rem;
-    text-wrap-style: balance;
+    text-wrap-style: pretty;
     @media (prefers-color-scheme: dark){
         background: none;
     }
@@ -354,7 +376,7 @@ h1 {
 .important{
     background: #f8f9fa;
     border-left: 4px solid #667eea;
-    padding: 20px;
+    padding: 1em 0.5em;
     margin: 25px 0;
     border-radius: 5px;
     @media (prefers-color-scheme: dark){
@@ -374,6 +396,9 @@ h1 {
             @media (prefers-color-scheme: dark){
                 color:var(--bottom-bg);
             }
+        }
+        li{
+            margin-bottom:6px;
         }
     }
 }
@@ -475,25 +500,5 @@ input[type="radio"] {
     font-style: italic;
     @media (prefers-color-scheme: dark){
         color:white;
-    }
-}
-
-@media (max-width: 600px) {
-    .card {
-        padding: 30px 20px;
-        margin: 10px;
-    }
-    
-    h1 {
-        font-size: 2rem;
-    }
-    
-    .subtitle {
-        font-size: 1.1rem;
-    }
-    
-    .radio-group {
-        flex-direction: column;
-        align-items: center;
     }
 }
