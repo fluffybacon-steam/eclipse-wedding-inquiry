@@ -13,117 +13,219 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Spanish Eclipse Wedding - Are You Interested?</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
     <script src="src/script.js" ></script>
     <link href="src/style.min.css" type="text/css" rel="stylesheet"/>
 </head>
-<body>
+<body data-animation="eclipse">
     <span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span>
     <span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span>
     <div class="container">
         <div class="sun-wrapper">
-            <div class="corona-wrapper">
+            <!-- <div class="corona-wrapper">
                 <div class="corona corona-1"></div>
                 <div class="corona corona-2"></div>
                 <div class="corona corona-3"></div>
                 <div class="corona corona-4"></div>
                 <div class="corona corona-blur"></div>
+            </div> -->
+            <div id="sun">
+                <div class="corona corona-1 corona-ray"></div>
+                <div class="corona corona-2 corona-ray"></div>
+                <div class="corona corona-3 corona-ray"></div>
+                <!-- <div class="corona corona-4 corona-ray"></div> -->
+                <div class="corona corona-blur"></div>
+                <!-- <div class="corona sunshine">
+                    <div class=ray></div>
+                    <div class=ray></div>
+                    <div class=ray></div>
+                    <div class=ray></div>
+                    <div class=ray></div>
+                </div> -->
             </div>
-            <div id="sun"></div>
+            <div id="moon">
+            </div>
         </div>
         
-        <div class="card">
-            <h1 class="show-after-corona">Join Us Under the Eclipse</h1>
-            <p class="subtitle show-after-corona">A Destination Wedding in Spain</p>
-            
-            <div class="details show-after-corona">
-                <h3>Wedding Details</h3>
-                <div class="detail-item">
-                    <div class="detail-icon"></div>
-                    <span><strong>When:</strong> August 9th - 15th, 2026</span>
+        <div class="card_carousel">
+            <div class="card home card--current" data-href="home">
+                <h1 class="show-after-corona">Join Us Under the Eclipse</h1>
+                <p class="subtitle show-after-corona">🛎️ Important Update (10/18/25)</p>
+                <div class="details show-after-corona">
+                    <p>
+                        Thank you so much for all your feedback and excitement about our original idea to get married in Spain under the eclipse.
+                        After hearing from many of you, we’ve decided to adjust our plans a bit.
+                    </p>
+                    <p>
+                        Here’s the new plan:
+                        </p><p>
+                        We will be having our legal ceremony here in Pennsylvania first, likely June or July 2026. This will include an exchange of simple vows and celebration.
+                        It will be informal and focused on celebrating with those closest to us.
+                    </p>
+                    <button data-href="pa" class="nav-button button">Details for our PA Celebration</button>
+                    <p>
+                        After the ceremony, we will be traveling to Spain to exchange our 💎 premium vows 💎 under the black sun. This is a special moment we both
+                        wish to share. <strong>Unfortunately,</strong> we were unable to secure accommodations for our party and will be traveling as a couple.
+                        That said, anyone is more than welcome to travel and witness our greatness.
+                    </p>
+                    <button data-href="spain" class="nav-button button">Details for our Spain itinerary</button>
                 </div>
-                <div class="detail-item">
-                    <div class="detail-icon"></div>
-                    <span><strong>Where:</strong> Spain (exact location TBD)</span>
-                </div>
-                <div class="detail-item">
-                    <div class="detail-icon"></div>
-                    <span><strong>Special Event:</strong> Total Solar Eclipse on August 12th</span>
-                </div>
-                <div class="detail-item">
-                    <div class="detail-icon"></div>
-                    <span><strong>Duration:</strong> 6-day celebration</span>
-                </div>
-            </div>
-            
-            <div class="highlight show-after-corona">
-                Witness our vows under the rare beauty of a total solar eclipse!
-            </div>
-            
-            <p class='show-after-corona' style=" font-size: 1.1rem;">
-                We're considering a magical destination wedding in Spain, timed perfectly with the total solar eclipse. This once-in-a-lifetime celestial event would make our special day even more unforgettable!
-            </p>
-
-            <div class='show-after-corona important' >
-                <h4 >📝 Important Details to Consider:</h4>
-                <ul >
-                    <li><strong>Limited Capacity:</strong> Please be mindful that we're only able to invite a handful of people to Spain due to space constraints.<strong> As a result, we cannot guarantee accommodations for plus ones.</strong></li>
-                    <li><strong>Accommodations:</strong> Abby and I will book and cover accommodations for our guests.</li>
-                    <li><strong>Travel Expenses:</strong> Other expenses (flights, excursions, meals, etc.) will be your responsibility.</li>
-                    <li><strong>Celebration in PA:</strong> We'll be having a larger post-wedding celebration back home in Pennsylvania where we hope everyone will be able to join us!</li>
-                </ul>
-            </div>
-            
-            <p class='show-after-corona'>
-                We need to have a rough idea of how many people can actually come to Spain - we are only inviting about 14 people - before we start reserving accommodations. If you don't think you can come to Spain, we promise it's okay - we hope you can join us in PA later in the fall 💚
-            </p>
-            
-            <div class="form-section show-after-corona">
-                <form id="interestForm" action="https://formspree.io/f/mandvokq" method="POST">
-                    <div class="form-group">
-                        <label for="name">Your Name *</label>
-                        <input type="text" id="name" name="name" required>
+                
+                <!-- <div class="details show-after-corona">
+                    <h3>Wedding Details</h3>
+                    <div class="detail-item">
+                        <div class="detail-icon"></div>
+                        <span><strong>When:</strong> August 9th - 15th, 2026</span>
                     </div>
-                    
-                    <div class="form-group">
-                        <label>Would you be able to join us for our destination wedding in Spain? 🕺</label>
-                        <div class="radio-group">
-                            <div class="radio-option">
-                                <input type="radio" id="definitely" name="interest" value="absolutely" required>
-                                <label for="definitely"><span>Absolutely! 🎉</span> I WILL be there</label>
-                            </div>
-                            <div class="radio-option">
-                                <input type="radio" id="likely" name="interest" value="likely" required>
-                                <label for="likely"><span>Very Likely 👍</span> I <i>think</i> I can make it but need time to confirm</label>
-                            </div>
-                            <div class="radio-option">
-                                <input type="radio" id="maybe" name="interest" value="maybe" required>
-                                <label for="maybe"><span>Maybe... 🤔</span> Not sure if I can make that work</label>
-                            </div>
-                            <div class="radio-option">
-                                <input type="radio" id="unlikely" name="interest" value="unlikely" required>
-                                <label for="unlikely"><span>Probably Not 😔</span> Celebrating in PA is more feasible to me</label>
-                            </div>
-                            <div class="radio-option">
-                                <input type="radio" id="unlikely" name="interest" value="objection" required>
-                                <label for="unlikely"><span>Definitely Not 💩</span> I object!</label>
+                    <div class="detail-item">
+                        <div class="detail-icon"></div>
+                        <span><strong>Where:</strong> Spain (exact location TBD)</span>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-icon"></div>
+                        <span><strong>Special Event:</strong> Total Solar Eclipse on August 12th</span>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-icon"></div>
+                        <span><strong>Duration:</strong> 6-day celebration</span>
+                    </div>
+                </div>
+                
+                <div class="highlight show-after-corona">
+                    Witness our vows under the rare beauty of a total solar eclipse!
+                </div>
+                
+                <p class='show-after-corona' style=" font-size: 1.1rem;">
+                    We're considering a magical destination wedding in Spain, timed perfectly with the total solar eclipse. This once-in-a-lifetime celestial event would make our special day even more unforgettable!
+                </p>
+    
+                <div class='show-after-corona important' >
+                    <h4 >📝 Important Details to Consider:</h4>
+                    <ul >
+                        <li><strong>Limited Capacity:</strong> Please be mindful that we're only able to invite a handful of people to Spain due to space constraints.<strong> As a result, we cannot guarantee accommodations for plus ones.</strong></li>
+                        <li><strong>Accommodations:</strong> Abby and I will book and cover accommodations for our guests.</li>
+                        <li><strong>Travel Expenses:</strong> Other expenses (flights, excursions, meals, etc.) will be your responsibility.</li>
+                        <li><strong>Celebration in PA:</strong> We'll be having a larger post-wedding celebration back home in Pennsylvania where we hope everyone will be able to join us!</li>
+                    </ul>
+                </div>
+                
+                <p class='show-after-corona'>
+                    We need to have a rough idea of how many people can actually come to Spain - we are only inviting about 14 people - before we start reserving accommodations. If you don't think you can come to Spain, we promise it's okay - we hope you can join us in PA later in the fall 💚
+                </p>
+                
+                <div class="form-section show-after-corona">
+                    <form id="interestForm" action="https://formspree.io/f/mandvokq" method="POST">
+                        <div class="form-group">
+                            <label for="name">Your Name *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Would you be able to join us for our destination wedding in Spain? 🕺</label>
+                            <div class="radio-group">
+                                <div class="radio-option">
+                                    <input type="radio" id="definitely" name="interest" value="absolutely" required>
+                                    <label for="definitely"><span>Absolutely! 🎉</span> I WILL be there</label>
+                                </div>
+                                <div class="radio-option">
+                                    <input type="radio" id="likely" name="interest" value="likely" required>
+                                    <label for="likely"><span>Very Likely 👍</span> I <i>think</i> I can make it but need time to confirm</label>
+                                </div>
+                                <div class="radio-option">
+                                    <input type="radio" id="maybe" name="interest" value="maybe" required>
+                                    <label for="maybe"><span>Maybe... 🤔</span> Not sure if I can make that work</label>
+                                </div>
+                                <div class="radio-option">
+                                    <input type="radio" id="unlikely" name="interest" value="unlikely" required>
+                                    <label for="unlikely"><span>Probably Not 😔</span> Celebrating in PA is more feasible to me</label>
+                                </div>
+                                <div class="radio-option">
+                                    <input type="radio" id="unlikely" name="interest" value="objection" required>
+                                    <label for="unlikely"><span>Definitely Not 💩</span> I object!</label>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="comments">Any questions, concerns, or excitement you'd like to share?</label>
-                        <textarea id="comments" name="comments" rows="4" placeholder="We'd love to hear your thoughts!"></textarea>
-                    </div>
-                    
-                    <button type="submit" class="submit-btn">Submit My Response</button>
-                </form>
+                        
+                        <div class="form-group">
+                            <label for="comments">Any questions, concerns, or excitement you'd like to share?</label>
+                            <textarea id="comments" name="comments" rows="4" placeholder="We'd love to hear your thoughts!"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="button">Submit My Response</button>
+                    </form>
+                </div>
+                
+                <div class="footer show-after-corona">
+                    Thank you for helping us plan our dream wedding! 💕<br>
+                    We'll be in touch soon with more details.
+                </div> -->
             </div>
-            
-            <div class="footer show-after-corona">
-                Thank you for helping us plan our dream wedding! 💕<br>
-                We'll be in touch soon with more details.
+    
+            <div class="card pa" data-href="pa">
+                <h1 class="">Pennsylvania Ceremony<br/> & Celebration 💒 🎉</h1>
+                <p class="subtitle">...Nothing yet</p>
+                <p>We are currently researching venues and will update this page as soon as a decision has been made!</p>
+                <p>We are hoping to find a place for <strong>June or July 2026</strong></p>
+                <p>In the interim, take a look at our amazing dogs</p>
+                <div style="overflow-x:scroll;height:400px;">
+                    <img style="height:100%;width:auto;object-fit:contain;" src="/src/dog1.jpg" />
+                    <img style="height:100%;width:auto;object-fit:contain;" src="/src/dog2.jpg" />
+                    <img style="height:100%;width:auto;object-fit:contain;" src="/src/dog3.jpg" />
+                    <img style="height:100%;width:auto;object-fit:contain;" src="/src/dog4.jpg" />
+                    <img style="height:100%;width:auto;object-fit:contain;" src="/src/dog5.jpg" />
+                    <img style="height:100%;width:auto;object-fit:contain;" src="/src/dog6.jpg" />
+                    <div style="color:white;margin:1em;">B-B-BONUS CONTENT!!
+                    Can't forget Suki now, can we?</div>
+                    <img style="height:100%;width:auto;object-fit:contain;" src="/src/cat1.jpg" />
+                    <img style="height:100%;width:auto;object-fit:contain;" src="/src/cat2.jpg" />
+                    <img style="height:100%;width:auto;object-fit:contain;" src="/src/cat3.jpg" />
+                    <img style="height:100%;width:auto;object-fit:contain;" src="/src/cat4.jpg" />
+                </div>
+                <button data-href="home" class="nav-button button">Back to Home</button>
+            </div>
+    
+            <div class="card spain" data-href="spain">
+               <h1 class="">✈️ Spain 2026</h1>
+                <img style='
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border: #AA151B 2px solid;
+' src="https://cdn1.matadornetwork.com/blogs/1/2024/06/mallorca-spain-beach-cala-moro-1200x900.jpg" />
+                <h2>❔ Where are you staying ❔</h2>
+                
+                <p>We have booked a reservation at <a href='https://www.hotelcanverdera.com/'>Hotel Can Verdera</a> for August 8th to the 15th 2026. The hotel is located on the island of Mallorca, Spain. This island is where we will be for the eclipse on August 12th.</p>
+
+                <p>We do plan on exploring the mainland of Spain the week prior to the 8th, but haven't booked anything just let. We will update this page when more information becomes available</p>
+
+                <img style="width:100%;height:300px;object-fit:cover;" src="https://wp.expatexplore.com/wp-content/uploads/2021/09/SpainFunFacts_Alhambra.jpg" />
+                <h2>❔ Thinking about joining us ❔</h2>
+
+<p>Just a heads-up: most Airbnbs you’ll find online are actually illegal and have contributed to a major housing crisis for local Spaniards. Please avoid these and instead book a stay with a licensed hotel or resort.</p>
+
+<p>Additionally, we recommend booking locations away from the more populated areas, like Madrid and Barcelona. Spain is expected to be visited by ~100 millions tourists next year, so you will be doing yourself a favor by <i>visiting</i> these high traffic destinations, rather than living in them.</p>
+ 
+
+<img style='width:100%;height:250px;object-fit:cover;' src="https://npr.brightspotcdn.com/dims3/default/strip/false/crop/5120x3414+0+0/resize/800/quality/85/format/webp/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2F12%2F97%2F2a1cc8fd4a9192640fb70f8d0f26%2Fap25166445762365.jpg" />
+<h2>❔ Is it safe ❔</h2>
+
+<p>You may have seen the news about <a href="https://www.npr.org/2025/06/16/nx-s1-5434829/spain-tourism-protests-water-pistols-barcelona-mallorca">protesters [using] water pistols against unsuspecting tourists</a> last summer. These protesters were marching to protest rising housing costs. While the incident was isolated and sporadic, it sent off a frenzy of news stories speculating about the future of tourism in Spain.</p>
+
+<p>In reality, Spain remains one of the safest countries in the world—far safer than the U.S. In fact, you’re over six times less likely to encounter violent crime there than in an average American city. But if you’d still like a little extra peace of mind, we recommend this <a href="https://shop.hasbro.com/en-us/product/nerf-super-soaker-flip-fill-water-blaster-fast-fill-30-fluid-ounce-tank-water-toys/F8643">device for your protection</a>.</p>
+
+<h2>👏 Final Word 👏</h2>
+<p>Traveling can be exciting and fun, but it is also a lot stress and work. We do not expect anyone to put themselves in a situation that would make them uncomfortable. This trip & the vows are, first and foremost, for us. Do not feel obligated to come; we are you inviting you without expectation. You won't hurt our feelings if you can't come... well, only if you also miss the PA celebration 🙃</p>
+
+<button data-href="home" class="nav-button button">Back to Home</button>
+
+<h2 style="margin-top:50vh;">❔ Why does this card/design look like 💩 ❔</h2>
+<p>This happens when you waste all the budget on the sun animation. Also, there is no budget.</p>
+<img src="https://media.tenor.com/sCSUysluyzsAAAAM/upal-lezhit.gif"/>
+ 
+.</p>
             </div>
         </div>
+
     </div>
      <div class="thanks-modal" style="display:none;">
       <div class="thanks-box">
