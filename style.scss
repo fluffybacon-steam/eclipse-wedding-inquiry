@@ -281,9 +281,15 @@ $zinc-950: #09090b;
     &.spain{
         background:#aa151ada;
         h1,h2,h3 {
-            --bg-text:white !important;
-            color:white
+            --bg-text:linear-gradient(45deg, #fbfbfb, #ffce56) !important;
+            color:white;
+            text-wrap-style:balance;
+            line-height:1;
         };
+        img{
+            margin:0.5em 0 1em 0;
+            border:#F1BF00 2px double;
+        }
         p{
             text-align: left;
             color:white;

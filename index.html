@@ -57,7 +57,7 @@
                         After hearing from many of you, we’ve decided to adjust our plans a bit.
                     </p>
                     <p>
-                        Here’s the new plan:
+                        <strong>Here’s the new plan:</strong>
                         </p><p>
                         We will be having our legal ceremony here in Pennsylvania first, likely June or July 2026. This will include an exchange of simple vows and celebration.
                         It will be informal and focused on celebrating with those closest to us.
@@ -162,25 +162,84 @@
             </div>
     
             <div class="card pa" data-href="pa">
-                <h1 class="">Pennsylvania Ceremony<br/> & Celebration 💒 🎉</h1>
+                <h1 class="">Pennsylvania Ceremony<br/> & Celebration</h1>
                 <p class="subtitle">...Nothing yet</p>
                 <p>We are currently researching venues and will update this page as soon as a decision has been made!</p>
                 <p>We are hoping to find a place for <strong>June or July 2026</strong></p>
                 <p>In the interim, take a look at our amazing dogs</p>
-                <div style="overflow-x:scroll;height:400px;">
-                    <img style="height:100%;width:auto;object-fit:contain;" src="/src/dog1.jpg" />
-                    <img style="height:100%;width:auto;object-fit:contain;" src="/src/dog2.jpg" />
-                    <img style="height:100%;width:auto;object-fit:contain;" src="/src/dog3.jpg" />
-                    <img style="height:100%;width:auto;object-fit:contain;" src="/src/dog4.jpg" />
-                    <img style="height:100%;width:auto;object-fit:contain;" src="/src/dog5.jpg" />
-                    <img style="height:100%;width:auto;object-fit:contain;" src="/src/dog6.jpg" />
-                    <div style="color:white;margin:1em;">B-B-BONUS CONTENT!!
-                    Can't forget Suki now, can we?</div>
-                    <img style="height:100%;width:auto;object-fit:contain;" src="/src/cat1.jpg" />
-                    <img style="height:100%;width:auto;object-fit:contain;" src="/src/cat2.jpg" />
-                    <img style="height:100%;width:auto;object-fit:contain;" src="/src/cat3.jpg" />
-                    <img style="height:100%;width:auto;object-fit:contain;" src="/src/cat4.jpg" />
-                </div>
+                <!-- Include Swiper's CSS -->
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+/>
+
+<!-- Swiper container -->
+<div class="swiper" style="height:400px;margin:1em 0;padding-bottom:35px;--swiper-pagination-bottom: 0px;
+    --swiper-pagination-bullet-size: 10px;--swiper-pagination-color:  #f53e28;
+    --swiper-pagination-bullet-inactive-color: #ffce56; --swiper-pagination-bullet-inactive-opacity: 0.5;">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide" style="width:auto;">
+      <img src="/src/dog1.jpg" style="height:100%;width:auto;object-fit:contain;" />
+    </div>
+    <div class="swiper-slide" style="width:auto;">
+      <img src="/src/dog2.jpg" style="height:100%;width:auto;object-fit:contain;" />
+    </div>
+    <div class="swiper-slide" style="width:auto;">
+      <img src="/src/dog3.jpg" style="height:100%;width:auto;object-fit:contain;" />
+    </div>
+    <div class="swiper-slide" style="width:auto;">
+      <img src="/src/dog4.jpg" style="height:100%;width:auto;object-fit:contain;" />
+    </div>
+    <div class="swiper-slide" style="width:auto;">
+      <img src="/src/dog5.jpg" style="height:100%;width:auto;object-fit:contain;" />
+    </div>
+    <div class="swiper-slide" style="width:auto;">
+      <img src="/src/dog6.jpg" style="height:100%;width:auto;object-fit:contain;" />
+    </div>
+
+    <div
+      class="swiper-slide"
+      style="width:auto;display:flex;align-items:center;justify-content:center;color:white;"
+    >
+      <div style="margin:1em;text-align:center;white-space:nowrap;">
+        <h3>B-B-BONUS CONTENT!!</h3>
+        <p>Can't forget Suki now, can we?</p>
+      </div>
+    </div>
+
+    <div class="swiper-slide" style="width:auto;">
+      <img src="/src/cat1.jpg" style="height:100%;width:auto;object-fit:contain;" />
+    </div>
+    <div class="swiper-slide" style="width:auto;">
+      <img src="/src/cat2.jpg" style="height:100%;width:auto;object-fit:contain;" />
+    </div>
+    <div class="swiper-slide" style="width:auto;">
+      <img src="/src/cat3.jpg" style="height:100%;width:auto;object-fit:contain;" />
+    </div>
+    <div class="swiper-slide" style="width:auto;">
+      <img src="/src/cat4.jpg" style="height:100%;width:auto;object-fit:contain;" />
+    </div>
+  </div>
+
+  <!-- Pagination and navigation -->
+  <div class="swiper-pagination"></div>
+</div>
+
+<!-- Include Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+                <script>
+                const swiper = new Swiper(".swiper", {
+                    slidesPerView: "auto",
+                    spaceBetween: 20,
+                    freeMode: true,
+                    grabCursor: true,
+                    pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                    },
+                });
+                </script>
+
                 <button data-href="home" class="nav-button button">Back to Home</button>
             </div>
     
@@ -190,37 +249,52 @@
     width: 100%;
     height: 350px;
     object-fit: cover;
-    border: #AA151B 2px solid;
 ' src="https://cdn1.matadornetwork.com/blogs/1/2024/06/mallorca-spain-beach-cala-moro-1200x900.jpg" />
-                <h2>❔ Where are you staying ❔</h2>
+                <h2>Where are you staying?</h2>
                 
-                <p>We have booked a reservation at <a href='https://www.hotelcanverdera.com/'>Hotel Can Verdera</a> for August 8th to the 15th 2026. The hotel is located on the island of Mallorca, Spain. This island is where we will be for the eclipse on August 12th.</p>
+                <p>We have booked a reservation at <a href='https://www.hotelcanverdera.com/'>Hotel Can Verdera</a> for August 8th to the 15th 2026. The hotel is located on the island of Mallorca, Spain near the <a href='https://en.wikipedia.org/wiki/S%C3%B3ller'>town of Soller</a>. There are still a few rooms available if you'd like to book a room to stay with us. This island is where we will be for the eclipse on August 12th.</p>
 
                 <p>We do plan on exploring the mainland of Spain the week prior to the 8th, but haven't booked anything just let. We will update this page when more information becomes available</p>
 
+                <p>Here is a list of hotels and bed-n-breakfasts near our accommodations. More options available on booking.com. Note: things are booking up quickly!</p>
+                <ul style="color:white;margin:0 1em 2em 1.25em;text-align:left;">
+                    <li>
+                        <a href="https://www.hotelmarinasoller.com/en" target="_blank">Hotel Marina Sóller</a> – Rooftop pool, spa, and sea-view rooms with balconies overlooking the harbor, right on the waterfront.
+                    </li>
+                    <li>
+                        <a href="https://www.puresaltluxuryhotels.com/port-soller/" target="_blank">Pure Salt Port de Soller Hotel</a> – Upscale beachfront hotel chain with pool, spa, and beach access. Rooms and suites with sea views and jacuzzi options.
+                    </li>
+                    <li>
+                        <a href="https://www.canaibioretreat.com/en/" target="_blank">Finca Ca N'ai Retreat</a> – Peaceful mountain and garden-view suites with large spaces and pool, located in Sóller.
+                    </li>
+                    <li>
+                        <a href="https://www.canquatre.com/en/hotel/can-quatre/" target="_blank">Finca Ca’n Quatre</a> – Charming finca in Sóller with pool, close to town. Offers yoga or massage in the garden; cozy suites surrounded by nature.
+                    </li>
+                    </ul>
+
+
                 <img style="width:100%;height:300px;object-fit:cover;" src="https://wp.expatexplore.com/wp-content/uploads/2021/09/SpainFunFacts_Alhambra.jpg" />
-                <h2>❔ Thinking about joining us ❔</h2>
+                <h2>Thinking about joining us?</h2>
 
 <p>Just a heads-up: most Airbnbs you’ll find online are actually illegal and have contributed to a major housing crisis for local Spaniards. Please avoid these and instead book a stay with a licensed hotel or resort.</p>
-
 <p>Additionally, we recommend booking locations away from the more populated areas, like Madrid and Barcelona. Spain is expected to be visited by ~100 millions tourists next year, so you will be doing yourself a favor by <i>visiting</i> these high traffic destinations, rather than living in them.</p>
  
 
 <img style='width:100%;height:250px;object-fit:cover;' src="https://npr.brightspotcdn.com/dims3/default/strip/false/crop/5120x3414+0+0/resize/800/quality/85/format/webp/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2F12%2F97%2F2a1cc8fd4a9192640fb70f8d0f26%2Fap25166445762365.jpg" />
-<h2>❔ Is it safe ❔</h2>
+<h2>Is it safe?</h2>
 
 <p>You may have seen the news about <a href="https://www.npr.org/2025/06/16/nx-s1-5434829/spain-tourism-protests-water-pistols-barcelona-mallorca">protesters [using] water pistols against unsuspecting tourists</a> last summer. These protesters were marching to protest rising housing costs. While the incident was isolated and sporadic, it sent off a frenzy of news stories speculating about the future of tourism in Spain.</p>
 
 <p>In reality, Spain remains one of the safest countries in the world—far safer than the U.S. In fact, you’re over six times less likely to encounter violent crime there than in an average American city. But if you’d still like a little extra peace of mind, we recommend this <a href="https://shop.hasbro.com/en-us/product/nerf-super-soaker-flip-fill-water-blaster-fast-fill-30-fluid-ounce-tank-water-toys/F8643">device for your protection</a>.</p>
 
-<h2>👏 Final Word 👏</h2>
+<h2>A Final Word</h2>
 <p>Traveling can be exciting and fun, but it is also a lot stress and work. We do not expect anyone to put themselves in a situation that would make them uncomfortable. This trip & the vows are, first and foremost, for us. Do not feel obligated to come; we are you inviting you without expectation. You won't hurt our feelings if you can't come... well, only if you also miss the PA celebration 🙃</p>
 
 <button data-href="home" class="nav-button button">Back to Home</button>
 
-<h2 style="margin-top:50vh;">❔ Why does this card/design look like 💩 ❔</h2>
+<!-- <h2 style="margin-top:50vh;">❔ Why does this card/design look like 💩 ❔</h2>
 <p>This happens when you waste all the budget on the sun animation. Also, there is no budget.</p>
-<img src="https://media.tenor.com/sCSUysluyzsAAAAM/upal-lezhit.gif"/>
+<img src="https://media.tenor.com/sCSUysluyzsAAAAM/upal-lezhit.gif"/> -->
  
 .</p>
             </div>
