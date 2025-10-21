@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
  }
 
  navButtonSetup();
+ handleCards();
 });
 
 function handleCards(newCard = null){
